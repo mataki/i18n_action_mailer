@@ -21,7 +21,7 @@ module I18nActionMailer
     end
 
     def set_locale(locale)
-      @locale = I18n.filter_locale(locale)
+      @locale = locale
     end
   end
 
