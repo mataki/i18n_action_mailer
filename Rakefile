@@ -11,6 +11,7 @@ begin
     gemspec.homepage = "http://github.com/mataki/i18n_action_mailer"
     gemspec.authors = ["Akihiro Matsumura", "Bert Goethals"]
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
 end
