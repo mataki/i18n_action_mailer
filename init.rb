@@ -1,1 +1,1 @@
-require 'i18n_action_mailer'
+require File.dirname(__FILE__) + "/rails/init.rb"
