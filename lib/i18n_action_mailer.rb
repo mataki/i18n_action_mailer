@@ -26,7 +26,7 @@ module I18nActionMailer
     end
 
     def render_message_with_i18n(method_name, body)
-      method_name = "#{method_name}.#{locale}" if locale and !Dir["#{template_path}/#{method_name}.#{locale}*"].empty?
+      method_name = "#{method_name}_#{locale}" if locale and !Dir["#{template_path}/#{method_name}_#{locale}*"].empty?
       render_message_without_i18n(method_name, body)
     end
   end

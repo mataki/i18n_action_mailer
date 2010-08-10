@@ -16,17 +16,21 @@ rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
 end
 
-desc 'Default: run unit tests.'
-task :default => :test
-
-require 'rake/testtask'
-desc 'Test the i18n_action_mailer plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+require 'spec/rake/spectask'
+Spec::Rake::SpecTask.new(:spec) do |spec|
+  spec.libs << 'lib' << 'spec'
+  spec.spec_files = FileList['spec/**/*_spec.rb']
 end
+
+Spec::Rake::SpecTask.new(:rcov) do |spec|
+  spec.libs << 'lib' << 'spec'
+  spec.pattern = 'spec/**/*_spec.rb'
+  spec.rcov = true
+end
+
+task :spec => :check_dependencies
+
+task :default => :spec
 
 require 'rake/rdoctask'
 desc 'Generate documentation for the i18n_action_mailer plugin.'
