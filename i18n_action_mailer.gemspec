@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{i18n_action_mailer}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Akihiro Matsumura", "Bert Goethals"]
-  s.date = %q{2010-08-06}
+  s.date = %q{2010-08-10}
   s.description = %q{ActionMailer to use the I18n library without affecting the controllers language}
   s.email = %q{matsumura.aki@gmail.com}
   s.extra_rdoc_files = [
@@ -26,6 +26,11 @@ Gem::Specification.new do |s|
      "install.rb",
      "lib/i18n_action_mailer.rb",
      "rails/init.rb",
+     "spec/i18n_action_mailer_spec.rb",
+     "spec/spec.opts",
+     "spec/spec_helper.rb",
+     "spec/templates/some_mailer/some_mail.erb",
+     "spec/templates/some_mailer/some_mail_ja.erb",
      "tasks/i18n_action_mailer_tasks.rake",
      "test/i18n_action_mailer_test.rb",
      "test/test_helper.rb",
@@ -37,7 +42,9 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{Action mailer with i18n options}
   s.test_files = [
-    "test/i18n_action_mailer_test.rb",
+    "spec/i18n_action_mailer_spec.rb",
+     "spec/spec_helper.rb",
+     "test/i18n_action_mailer_test.rb",
      "test/test_helper.rb"
   ]
 
