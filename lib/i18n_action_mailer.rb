@@ -6,9 +6,22 @@ module I18nActionMailer
     base.helper_method :locale, :l, :localize
     base.helper do
       def translate(key, options = {})
-        super(key, options.merge(:locale => self.locale))
+        I18n.translate(scope_key_by_partial(key), options.merge!(:raise => true))
       end
       alias_method :t, :translate
+
+      private
+        def scope_key_by_partial(key)
+          if key.to_s.first == "."
+            if @_virtual_path
+              @_virtual_path.gsub(%r{/_?}, ".") + key.to_s
+            else
+              raise "Cannot use t(#{key.inspect}) shortcut because path is not available"
+            end
+          else
+            key
+          end
+        end
     end
   end
 
