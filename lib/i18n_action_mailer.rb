@@ -3,11 +3,12 @@ module I18nActionMailer
   def self.included(base)
     base.send :include, I18nActionMailer::InstanceMethods
     base.send :alias_method_chain, :render_message, :i18n
-    base.helper_method :locale, :t, :l, :localize
+    base.helper_method :locale, :l, :localize
     base.helper do
       def translate(key, options = {})
         super(key, options.merge(:locale => self.locale))
       end
+      alias_method :t, :translate
     end
   end
 
