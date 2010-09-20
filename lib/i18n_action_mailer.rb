@@ -8,12 +8,12 @@ module I18nActionMailer
 
   module InstanceMethods
     def translate(key, options = {})
-      I18n.translate(key, options.merge(:locale => self.locale))
+      super(key, options.merge(:locale => self.locale))
     end
     alias_method :t, :translate
 
     def localize(key, options = {})
-      I18n.localize(key, options.merge(:locale => self.locale))
+      super(key, options.merge(:locale => self.locale))
     end
     alias_method :l, :localize
 
