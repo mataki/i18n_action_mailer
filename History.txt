@@ -1,0 +1,4 @@
+= 0.2.2
+* Short hand notation (larspind http://github.com/mataki/i18n_action_mailer/pull/1)
+= 0.2.1
+* Released on rubygems.org
