@@ -6,7 +6,7 @@ module I18nActionMailer
     base.helper_method :locale, :l, :localize
     base.helper do
       def translate(key, options = {})
-        I18n.translate(scope_key_by_partial(key), options.merge!(:raise => true))
+        I18n.translate(scope_key_by_partial(key), options.merge!(:raise => true, :locale => self.locale))
       end
       alias_method :t, :translate
 
@@ -27,7 +27,7 @@ module I18nActionMailer
 
   module InstanceMethods
     def translate(key, options = {})
-      I18n.translate(key, options.merge(:locale => self.locale))
+      I18n.translate(scope_key_by_partial(key), options.merge(:raise => true, :locale => self.locale))
     end
     alias_method :t, :translate
 
@@ -48,6 +48,19 @@ module I18nActionMailer
       method_name = "#{method_name}_#{locale}" if locale and !Dir["#{template_path}/#{method_name}_#{locale}*"].empty?
       render_message_without_i18n(method_name, body)
     end
+    
+    private
+      def scope_key_by_partial(key)
+        if key.to_s.first == "."
+          if @_virtual_path
+            @_virtual_path.gsub(%r{/_?}, ".") + key.to_s
+          else
+            raise "Cannot use t(#{key.inspect}) shortcut because path is not available"
+          end
+        else
+          key
+        end
+      end      
   end
 
 end
