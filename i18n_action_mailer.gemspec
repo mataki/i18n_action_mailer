@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{i18n_action_mailer}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Akihiro Matsumura", "Bert Goethals"]
-  s.date = %q{2010-08-10}
+  s.authors = ["Akihiro Matsumura", "Bert Goethals", "Lars Pind"]
+  s.date = %q{2010-09-21}
   s.description = %q{ActionMailer to use the I18n library without affecting the controllers language}
   s.email = %q{matsumura.aki@gmail.com}
   s.extra_rdoc_files = [
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".gitignore",
+     "History.txt",
      "MIT-LICENSE",
      "README",
      "Rakefile",

@@ -9,7 +9,7 @@ begin
     gemspec.description = "ActionMailer to use the I18n library without affecting the controllers language"
     gemspec.email = "matsumura.aki@gmail.com"
     gemspec.homepage = "http://github.com/mataki/i18n_action_mailer"
-    gemspec.authors = ["Akihiro Matsumura", "Bert Goethals"]
+    gemspec.authors = ["Akihiro Matsumura", "Bert Goethals", "Lars Pind"]
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
