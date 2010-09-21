@@ -51,12 +51,9 @@ module I18nActionMailer
     
     private
       def scope_key_by_partial(key)
-        if key.to_s.first == "."
-          if @_virtual_path
-            @_virtual_path.gsub(%r{/_?}, ".") + key.to_s
-          else
-            raise "Cannot use t(#{key.inspect}) shortcut because path is not available"
-          end
+        if key.to_s.first == "."   
+          mailer_scope = self.class.mailer_name.gsub('/', '.')
+          mailer_scope + "." + action_name + key.to_s
         else
           key
         end
